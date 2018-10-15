@@ -28,7 +28,6 @@ call vundle#begin()
     Plugin 'majutsushi/tagbar'                  " Class/module browser
     Plugin 'ctrlpvim/ctrlp.vim'                     " Fast transitions on project files
     Plugin 'plytophogy/vim-virtualenv'
-    "-------------------=== Other ===-------------------------------
     Plugin 'bling/vim-airline'                  " Lean & mean status/tabline for vim
     Plugin 'vim-airline/vim-airline-themes'     " Themes for airline
     Plugin 'Lokaltog/powerline'                 " Powerline fonts plugin
@@ -90,7 +89,7 @@ set backspace=indent,eol,start              " backspace removes all (indents, EO
 
 set scrolloff=10                            " let 10 lines before/after cursor during scroll
 
-set clipboard=unnamed                       " use system clipboard
+set clipboard=unnamedplus                       " use system clipboard
 
 set exrc                                    " enable usage of additional .vimrc files from working directory
 set secure                                  " prohibit .vimrc files to execute shell, create files, etc...
@@ -148,9 +147,9 @@ let g:airline_powerline_fonts=0
 "" TagBar settings
 "=====================================================
 let g:tagbar_autofocus=0
-let g:tagbar_width=42
-autocmd BufEnter *.py :call tagbar#autoopen(0)
-autocmd BufWinLeave *.py :TagbarClose
+let g:tagbar_width=30
+"autocmd BufEnter *.py :call tagbar#autoopen(0)
+"autocmd BufWinLeave *.py :TagbarClose
 
 "=====================================================
 "" NERDTree settings
@@ -158,8 +157,9 @@ autocmd BufWinLeave *.py :TagbarClose
 let NERDTreeIgnore=['\.pyc$', '\.pyo$', '__pycache__$']     " Ignore files in NERDTree
 let NERDTreeWinSize=40
 let g:NERDTreeChDirMode=2
+let NERDTreeNaturalSort=1
 autocmd VimEnter * if !argc() | NERDTree | endif  " Load NERDTree only if vim is run without arguments
-nmap " :NERDTreeToggle<CR>
+nmap <leader>' :NERDTreeToggle<CR>
 
 "=====================================================
 "" SnipMate settings
@@ -287,3 +287,9 @@ nnoremap tt  :tabedit<Space>
 nnoremap tn  :tabnext<Space>
 nnoremap tm  :tabm<Space>
 nnoremap td  :tabclose<CR>
+
+" copy filename/path 
+nnor ,cf :let @+=expand("%:p")<CR>    " Mnemonic: Copy File path
+nnor ,yf :let @"=expand("%:p")<CR>    " Mnemonic: Yank File path
+nnor ,fn :let @"=expand("%")<CR>      " Mnemonic: yank File Name
+

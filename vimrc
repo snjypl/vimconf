@@ -112,22 +112,22 @@ nmap <silent> <leader>q :SyntasticCheck # <CR> :bp <BAR> bd #<CR>
 " " \l       : list buffers
 " " \b \f \g : go back/forward/last-used
 " " \1 \2 \3 : go to buffer 1/2/3 etc
-"nnoremap <Leader>l :ls<CR>
-"nnoremap <Leader>b :bp<CR>
-"nnoremap <Leader>f :bn<CR>
-"nnoremap <Leader>g :e#<CR>
-"nnoremap <Leader>1 :1b<CR>
-"nnoremap <Leader>2 :2b<CR>
-"nnoremap <Leader>3 :3b<CR>
-"nnoremap <Leader>4 :4b<CR>
-"nnoremap <Leader>5 :5b<CR>
-"nnoremap <Leader>6 :6b<CR>
-"nnoremap <Leader>7 :7b<CR>
-"nnoremap <Leader>8 :8b<CR>
-"nnoremap <Leader>9 :9b<CR>
-"nnoremap <Leader>0 :10b<CR>
+nnoremap <Leader>l :ls<CR>
+nnoremap <Leader>b :bp<CR>
+nnoremap <Leader>f :bn<CR>
+nnoremap <Leader>g :e#<CR>
+nnoremap <Leader>1 :1b<CR>
+nnoremap <Leader>2 :2b<CR>
+nnoremap <Leader>3 :3b<CR>
+nnoremap <Leader>4 :4b<CR>
+nnoremap <Leader>5 :5b<CR>
+nnoremap <Leader>6 :6b<CR>
+nnoremap <Leader>7 :7b<CR>
+nnoremap <Leader>8 :8b<CR>
+nnoremap <Leader>9 :9b<CR>
+nnoremap <Leader>0 :10b<CR>
 " " It's useful to show the buffer number in the status line.
-" set laststatus=2 statusline=%02n:%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+set laststatus=2 statusline=%02n:%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 "
 
 "" Search settings
@@ -268,26 +268,29 @@ nmap <leader>d :YcmCompleter GoToDefinition<CR>
 " vim-virtualenv 
 let g:virtualenv_directory='~/.virenvn'
 
-" split tabs 
+" " split tabs 
+" nnoremap <C-J> <C-W><C-J>
+" nnoremap <C-K> <C-W><C-K>
+" nnoremap <C-L> <C-W><C-L>
+" nnoremap <C-H> <C-W><C-H>
+" 
+set splitbelow
+ set splitright
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
-set splitbelow
-set splitright
-
-" autocmd FileType python3 nnoremap <buffer> <F9> :exec '!python3.6' shellescape(@%, 1)<cr>
-
-nnoremap th  :tabfirst<CR>
-nnoremap tk  :tabnext<CR>
-nnoremap tj  :tabprev<CR>
-nnoremap tl  :tablast<CR>
-nnoremap tt  :tabedit<Space>
-nnoremap tn  :tabnext<Space>
-nnoremap tm  :tabm<Space>
-nnoremap td  :tabclose<CR>
-
+nnoremap <C-H> <C-W><C-H> 
+" " autocmd FileType python3 nnoremap <buffer> <F9> :exec '!python3.6' shellescape(@%, 1)<cr>
+" 
+" nnoremap th  :tabfirst<CR>
+" nnoremap tk  :tabnext<CR>
+" nnoremap tj  :tabprev<CR>
+" nnoremap tl  :tablast<CR>
+" nnoremap tt  :tabedit<Space>
+" nnoremap tn  :tabnext<Space>
+" nnoremap tm  :tabm<Space>
+" nnoremap td  :tabclose<CR>
+" 
 " copy filename/path 
 nnor ,cf :let @+=expand("%:p")<CR>    " Mnemonic: Copy File path
 nnor ,yf :let @"=expand("%:p")<CR>    " Mnemonic: Yank File path

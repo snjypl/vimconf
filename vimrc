@@ -8,7 +8,7 @@
 "                                                                              "
 "++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++"
 
-let $vimhome=fnamemodify(resolve(expand("~/.vimrc")), ':p:h')
+let $vimhome=fnamemodify(resolve(expand("~/.vim/.vimrc")), ':p:h')
 let $vundle=$vimhome."/bundle/Vundle.vim"
 
 " Be iMproved
@@ -52,6 +52,8 @@ call vundle#begin()
     Plugin 'python-mode/python-mode'                   " Python mode (docs, refactor, lints...)
     Plugin 'scrooloose/syntastic'               " Syntax checking plugin for Vim
     Plugin 'tell-k/vim-autopep8'                " Autopep8 for python
+    Plugin 'ambv/black'                         " Black for python
+    Plugin 'tell-k/vim-autoflake'
 
 call vundle#end()                           " required
 filetype on
@@ -231,7 +233,7 @@ augroup vimrc_autocmds
     autocmd FileType python,rst,c,cpp highlight Excess ctermbg=DarkGrey guibg=Black
     autocmd FileType python,rst,c,cpp match Excess /\%81v.*/
     autocmd FileType python,rst,c,cpp set nowrap
-    autocmd FileType python,rst,c,cpp set colorcolumn=80
+    autocmd FileType python,rst,c,cpp set colorcolumn=88
 augroup END
 
 " code folding
@@ -275,7 +277,7 @@ let g:virtualenv_directory='~/.virenvn'
 " nnoremap <C-H> <C-W><C-H>
 " 
 set splitbelow
- set splitright
+set splitright
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
@@ -296,3 +298,6 @@ nnor ,cf :let @+=expand("%:p")<CR>    " Mnemonic: Copy File path
 nnor ,yf :let @"=expand("%:p")<CR>    " Mnemonic: Yank File path
 nnor ,fn :let @"=expand("%")<CR>      " Mnemonic: yank File Name
 
+
+
+" au FileType python setlocal formatprg=black\ -

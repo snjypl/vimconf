@@ -1,0 +1,15 @@
+{
+    "python.jediEnabled": false,
+    "python.linting.enabled": true,
+    "python.linting.pylintArgs": ["--rcfile", "~/.pylintrc", "-d", "C0411"],
+    "python.formatting.provider": "black",
+    "python.formatting.blackPath":"~/.venv/dev/bin/black",
+    "python.formatting.autopep8Path":"~/.venv/dev/bin/autopep8",
+    "python.linting.pylintUseMinimalCheckers": false,
+    "python.linting.pylintPath": "pylint",
+    "coc.preferences.formatOnType":true,
+    "coc.preferences.formatOnSaveFiletypes": ["py","*.py","python"],
+    "yaml.schemas": {
+        "kubernetes": "/*.yaml"
+    }
+}

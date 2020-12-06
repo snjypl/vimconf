@@ -28,3 +28,4 @@ echo $CONFIG_PATH
 if [ !  -L "${CONFIG_PATH}" ] ||  [ ! -e "${CONFIG_PATH}" ]; then
 	ln  -s "$FROM_PATH" "$CONFIG_PATH"
 fi
+git config --global core.editor nvim

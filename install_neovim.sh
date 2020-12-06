@@ -1,27 +1,27 @@
 
 BASHRC=~/.bashrc
 if ! command -v nvim &> /dev/null; then
-	
-	if ! grep -Fxq "~/.bashrc" ~/.bashrc; then 
+
+	if ! grep -Fxq "~/.bashrc" ~/.bashrc; then
 		 echo "PATH=$PATH:~/.local/bin" >> ~/.bashrc
 		 source ~/.bashrc
-	fi 
+	fi
 
 	if [ ! -f "~/.local/bin/nvim" ] ; then
 		if [ ! -f "nvim.appimage" ]; then
 			curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
-		fi 
+		fi
 		chmod u+x nvim.appimage
-		mv nvim.appimage ~/.local/bin/nvim 
+		mv nvim.appimage ~/.local/bin/nvim
 	fi
 fi
 
-CONFIG_DIR=~/.conf
+CONFIG_DIR=~/.config
 
 if [ ! -f "$CONFIG_DIR" ]; then
-	mkdir -p  $CONFIG_DIR	
+	mkdir -p  $CONFIG_DIR
 fi
-CONFIG_PATH=$CONFIG_DIR/neovim
+CONFIG_PATH=$CONFIG_DIR/nvim
 FROM_PATH=$(pwd)/neovim
 echo $FROM_PATH
 echo $CONFIG_PATH

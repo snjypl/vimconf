@@ -2,6 +2,9 @@
 BASHRC=~/.bashrc
 if ! command -v nvim &> /dev/null; then
 
+    if ! -d '~/.local/bin'; then
+        mkdir -p "~/.local/bin"
+
 	if ! grep -Fxq "~/.bashrc" ~/.bashrc; then
 		 echo "PATH=$PATH:~/.local/bin" >> ~/.bashrc
 		 source ~/.bashrc
@@ -11,8 +14,11 @@ if ! command -v nvim &> /dev/null; then
 		if [ ! -f "nvim.appimage" ]; then
 			curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 		fi
+        mkdir -p ~/.local/appdata
+		mv nvim.appimage ~/.local/appdata
+        ./.local/appdata/nvim.appimage --appimage-extract
+        ln -s ~/.local/appdata/~/.local/bin/nvim
 		chmod u+x nvim.appimage
-		mv nvim.appimage ~/.local/bin/nvim
 	fi
 fi
 

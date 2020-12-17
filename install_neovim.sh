@@ -1,28 +1,42 @@
 
-BASHRC=~/.bashrc
+BASHRC=${HOME}/.bashrc
+PWD=$(pwd)
+set -e
 if ! command -v nvim &> /dev/null; then
 
-    if ! -d '~/.local/bin'; then
-        mkdir -p "~/.local/bin"
+    if [ ! -d "${HOME}/.local/bin" ] ; then
+        mkdir -p "${HOME}/.local/bin"
 
-	if ! grep -Fxq "~/.bashrc" ~/.bashrc; then
-		 echo "PATH=$PATH:~/.local/bin" >> ~/.bashrc
-		 source ~/.bashrc
+    fi
+	if ! grep -Fxq "${HOME}/.local/bin" ${HOME}/.bashrc; then
+		 echo "PATH=$PATH:${HOME}/.local/bin" >> ${HOME}/.bashrc
+		 source ${HOME}/.bashrc
 	fi
 
-	if [ ! -f "~/.local/bin/nvim" ] ; then
+	if [ ! -f "${HOME}/.local/bin/nvim" ] ; then
 		if [ ! -f "nvim.appimage" ]; then
 			curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 		fi
-        mkdir -p ~/.local/appdata
-		mv nvim.appimage ~/.local/appdata
-        ./.local/appdata/nvim.appimage --appimage-extract
-        ln -s ~/.local/appdata/~/.local/bin/nvim
-		chmod u+x nvim.appimage
+		APPDATA="${HOME}/.local/appdata"
+		echo $APPDATA
+		mkdir -p ${APPDATA}
+		mv nvim.appimage ${APPDATA} 
+		APPIMAGE="${HOME}/.local/appdata/nvim.appimage"
+		echo ${APPIMAGE}
+
+		chmod 755 ${APPIMAGE}
+		cd ${APPDATA}
+		ls -lath ${APPIMAGE}
+		 ${APPIMAGE} --appimage-extract
+
+		VIMPATH="${APPDATA}/squashfs-root/usr/bin/nvim"
+		chmod 755 ${VIMPATH}
+        	ln -s "${VIMPATH}" "${HOME}/.local/bin/nvim"
+		cd $PWD
 	fi
 fi
 
-CONFIG_DIR=~/.config
+CONFIG_DIR=${HOME}/.config
 
 if [ ! -f "$CONFIG_DIR" ]; then
 	mkdir -p  $CONFIG_DIR

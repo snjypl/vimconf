@@ -3,7 +3,7 @@
     "coc-go": ">=0.12.1",
     "coc-json": ">=1.2.6",
     "coc-python": ">=1.2.12",
-    "coc-snippets": "^2.2.9",
+    "coc-snippets": "^2.3.1",
     "coc-tsserver": ">=1.5.3",
     "coc-yaml": ">=1.0.5"
   }

@@ -20,7 +20,7 @@ if ! command -v nvim &> /dev/null; then
 		APPDATA="${HOME}/.local/appdata"
 		echo $APPDATA
 		mkdir -p ${APPDATA}
-		mv nvim.appimage ${APPDATA} 
+		mv nvim.appimage ${APPDATA}
 		APPIMAGE="${HOME}/.local/appdata/nvim.appimage"
 		echo ${APPIMAGE}
 
@@ -35,14 +35,14 @@ if ! command -v nvim &> /dev/null; then
 		cd $PWD
 	fi
 fi
-
+cd $PWD
 CONFIG_DIR=${HOME}/.config
 
 if [ ! -f "$CONFIG_DIR" ]; then
 	mkdir -p  $CONFIG_DIR
 fi
 CONFIG_PATH=$CONFIG_DIR/nvim
-FROM_PATH=$(pwd)/neovim
+FROM_PATH=$PWD/neovim
 echo $FROM_PATH
 echo $CONFIG_PATH
 if [ !  -L "${CONFIG_PATH}" ] ||  [ ! -e "${CONFIG_PATH}" ]; then

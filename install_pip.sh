@@ -16,5 +16,6 @@ $PYTHON -m venv ~/.venv/nvim
 
 . ~/.venv/nvim/bin/activate
 
-pip install black pylint
+pip install wheel
+pip install black pylint pynvim
 

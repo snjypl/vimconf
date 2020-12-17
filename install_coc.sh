@@ -1,5 +1,5 @@
 PWD=$(pwd)
-if [ ! -x "$(command -v node)" ]; then
+if [!  -x "$(command -v node)" ]; then
 
     curl --fail -LSs https://install-node.now.sh/latest -o install_node.sh
     bash install_node.sh   --prefix="${HOME}/.local"  --verbose -y
@@ -12,6 +12,7 @@ mkdir -p $COC_START_PATH
 curl --fail -L https://github.com/neoclide/coc.nvim/archive/release.tar.gz | tar -C $COC_START_PATH  -xzvf -
 
 mkdir -p ~/.config/coc/extensions
+echo "config"
 COC_PKG_FILE=~/.config/coc/extensions/package.json
 if [ ! -L $COC_PKG_FILE ]; then
 	ln -s $PWD/nvim-coc/package.json $COC_PKG_FILE

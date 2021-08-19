@@ -9,6 +9,7 @@
     "python.linting.pylintPath": "pylint",
     "coc.preferences.formatOnType":true,
     "coc.preferences.formatOnSaveFiletypes": ["py","*.py","python"],
+    "json.format.enable":true,
     "yaml.schemas": {
         "kubernetes": "/*.yaml"
     }

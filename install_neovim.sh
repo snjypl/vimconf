@@ -2,6 +2,7 @@
 BASHRC=${HOME}/.bashrc
 PWD=$(pwd)
 set -e
+
 if ! command -v nvim &> /dev/null; then
 
     if [ ! -d "${HOME}/.local/bin" ] ; then
@@ -43,8 +44,8 @@ if [ ! -f "$CONFIG_DIR" ]; then
 fi
 CONFIG_PATH=$CONFIG_DIR/nvim
 FROM_PATH=$PWD/neovim
-echo $FROM_PATH
-echo $CONFIG_PATH
+echo 'config FROM_PATH '$FROM_PATH
+echo 'config PATH' $CONFIG_PATH
 if [ !  -L "${CONFIG_PATH}" ] ||  [ ! -e "${CONFIG_PATH}" ]; then
 	ln  -s "$FROM_PATH" "$CONFIG_PATH"
 fi

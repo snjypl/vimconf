@@ -6,6 +6,9 @@ Plug 'preservim/nerdtree'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
 Plug 'psf/black'
 Plug 'junegunn/fzf.vim'
+Plug 'liuchengxu/vista.vim'
+Plug 'preservim/tagbar'
+Plug 'editorconfig/editorconfig-vim'
 " Plug 'chuling/equinusocio-material.vim'
 call plug#end()
 runtime basic.vim 

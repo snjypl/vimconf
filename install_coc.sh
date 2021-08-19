@@ -1,9 +1,12 @@
+set -e 
 PWD=$(pwd)
-if [!  -x "$(command -v node)" ]; then
+if ! command -v node &> /dev/null; then
 
+    echo "install node"
     curl --fail -LSs https://install-node.now.sh/latest -o install_node.sh
     bash install_node.sh   --prefix="${HOME}/.local"  --verbose -y
     rm install_node.sh
+
 fi
 
 COC_START_PATH=~/.local/share/nvim/site/pack/coc/start
@@ -15,6 +18,7 @@ mkdir -p ~/.config/coc/extensions
 echo "config"
 COC_PKG_FILE=~/.config/coc/extensions/package.json
 if [ ! -L $COC_PKG_FILE ]; then
+	echo "creating cock pkg"
 	ln -s $PWD/nvim-coc/package.json $COC_PKG_FILE
 fi
 cd ~/.config/coc/extensions

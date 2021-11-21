@@ -1,13 +1,6 @@
 {
-    "python.jediEnabled": false,
-    "python.linting.enabled": true,
-    "python.linting.pylintArgs": ["--rcfile", "~/.pylintrc", "-d", "C0411"],
-    "python.formatting.provider": "black",
-    "python.formatting.blackPath":"~/.venv/nvim/bin/black",
-    "python.formatting.autopep8Path":"~/.venv/nvim/bin/autopep8",
-    "python.linting.pylintUseMinimalCheckers": false,
-    "python.linting.pylintPath": "pylint",
     "coc.preferences.formatOnType":true,
+    "python.linting.mypyEnabled":true,
     "coc.preferences.formatOnSaveFiletypes": ["py","*.py","python"],
     "json.format.enable":true,
     "yaml.schemas": {

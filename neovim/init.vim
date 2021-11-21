@@ -9,6 +9,12 @@ Plug 'junegunn/fzf.vim'
 Plug 'liuchengxu/vista.vim'
 Plug 'preservim/tagbar'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'kkoomen/vim-doge'
+Plug 'bfredl/nvim-ipy'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'bfredl/nvim-ipy'
+
 " Plug 'chuling/equinusocio-material.vim'
 call plug#end()
 runtime basic.vim 

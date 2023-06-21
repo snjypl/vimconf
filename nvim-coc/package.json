@@ -12,5 +12,6 @@
   "devDependencies": {
     "eslint": "^8.0.0",
     "eslint-plugin-vue": "^7.19.1"
-  }
+  },
+  "packageManager": "yarn@1.22.19"
 }

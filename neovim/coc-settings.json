@@ -1,9 +1,31 @@
 {
-    "coc.preferences.formatOnType":true,
-    "python.linting.mypyEnabled":true,
-    "coc.preferences.formatOnSaveFiletypes": ["py","*.py","python"],
-    "json.format.enable":true,
+    "coc.preferences.formatOnType": true,
+    "python.linting.mypyEnabled": true,
+    "coc.preferences.formatOnSaveFiletypes": [
+        "py",
+        "*.py",
+        "python"
+    ],
+    "json.format.enable": true,
     "yaml.schemas": {
-        "kubernetes": "/*.yaml"
+    },
+    "yaml.schemaStore.enable":true,
+    "yaml.trace.server": "verbose",
+    "yaml.format.enable": true,
+    "go.goplsOptions": {
+        "templateExtensions": [
+            "yaml"
+        ]
+    },
+    "languageserver": {
+        "terraform": {
+            "command": "terraform-lsp",
+            "filetypes": [
+                "terraformx",
+                "tfx"
+            ],
+            "initializationOptions": {},
+            "settings": {}
+        }
     }
 }

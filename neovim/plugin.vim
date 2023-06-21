@@ -16,3 +16,5 @@ map <leader>nf :NERDTreeFind<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <silent> <leader>f :FZF<cr>
 nnoremap <silent> <C-f>:FZF ~<cr>
+
+

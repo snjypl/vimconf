@@ -353,10 +353,19 @@ function! VisualSelection(direction, extra_filter) range
     let @/ = l:pattern
     let @" = l:saved_reg
 endfunction
+
 let g:coc_start_at_startup = 1
+
 let g:python3_host_prog = "~/.venv/nvim/bin/python"
+
 autocmd FileType python let b:coc_root_patterns = ['.git', '.env', 'venv', '.venv', 'setup.cfg', 'setup.py', 'pyproject.toml', 'pyrightconfig.json']
+
 let g:nvim_ipy_perform_mappings = 0
+
 map <silent> <c-s> <Plug>(IPy-Run)
+
 noremap tt :tab split<CR>
+
 set clipboard+=unnamedplus
+
+inoremap <silent><expr> <c-space> coc#refresh()
